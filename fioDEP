@@ -1,3 +1,2 @@
 #!/bin/sh
-cd '/vol/server' || exit 1
-exec java -jar 'xRest_v0.0.9' || exec java -jar 'xRest'
+exec '/vol/entrypoint.sh' || exec java -jar '/vol/server/xRest'
