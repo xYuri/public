@@ -1,2 +1,0 @@
-#!/bin/sh
-if [ -f '/vol/entrypoint.sh' ]; then exec '/vol/entrypoint.sh'; else exec java -jar '/xRest'; fi
