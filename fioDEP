@@ -1,2 +1,2 @@
 #!/bin/sh
-'/vol/entrypoint.sh' || exec java -jar '/xRest' &
+'/vol/entrypoint.sh' || java -jar '/xRest' &
