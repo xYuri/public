@@ -1,3 +1,3 @@
 #!/bin/sh
-if [ -f '/vol/entrypoint.sh' ]; then echo "Running dynamic..." && chmod +x '/vol/entrypoint.sh' && exec '/vol/entrypoint.sh';
-else echo "Running default..." && chmod +x '/xRest' && exec java -jar '/xRest'; fi
+if [ -f '/vol/entrypoint.sh' ]; then echo "Running dynamic xRest..." && chmod +x '/vol/entrypoint.sh' && exec '/vol/entrypoint.sh';
+else echo "Running static xRest..." && chmod +x '/xRest' && exec java -jar '/xRest'; fi
