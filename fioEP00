@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ -d '/vol' ]; then
+	echo 'Finding latest ver...'
+	# get the latest bin name
+	FILE_NAME=$(find . -maxdepth 1 -type f -name 'xRest_*' -printf '%T@ %P\n' | sort -k1r | head -1 | grep -o 'xRest_.*')
+	# check if file name is valid
+	if [ -n "$FILE_NAME" ]; then
+		FILE_PATH="/vol/$FILE_NAME"
+		echo "Running dynamic xRest..." && chmod +x "$FILE_PATH" && exec "$FILE_PATH"
+	else echo "Running static xRest..." && chmod +x '/xRest' && exec java -jar '/xRest'; fi
+else echo "Running static xRest..." && chmod +x '/xRest' && exec java -jar '/xRest'; fi
