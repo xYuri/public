@@ -2,7 +2,7 @@
 if [ -d '/vol' ]; then
 	echo 'Finding latest bin...'
 	# get the latest bin name
-	FILE_NAME=$(find /vol -maxdepth 1 -type f -name 'xRest_*' -printf '%T@ %P\n' | sort -k1r | head -1 | grep -o 'xRest_.*')
+	FILE_NAME=$(find /vol/server -maxdepth 1 -type f -name 'xRest_*' -printf '%T@ %P\n' | sort -k1r | head -1 | grep -o 'xRest_.*')
 	# check if file name is valid
 	if [ -n "$FILE_NAME" ]; then
 		FILE_PATH="/vol/$FILE_NAME"
