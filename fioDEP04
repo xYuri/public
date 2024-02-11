@@ -5,6 +5,6 @@ if [ -d '/vol' ]; then
 	FILE_NAME=$(find "$DIR" -maxdepth 1 -type f -name 'xRest_*' -printf '%T@ %P\n' | sort -k1r | head -1 | grep -o 'xRest_.*')
 	if [ -n "$FILE_NAME" ]; then
 		FILE_PATH="$DIR/$FILE_NAME"
-		echo cd "DIR" && "Found: $FILE_PATH, Running dynamic..." && chmod +x "$FILE_PATH" && exec java -jar "$FILE_PATH"
+		echo cd "$DIR" && "Found: $FILE_PATH, Running dynamic..." && chmod +x "$FILE_PATH" && exec java -jar "$FILE_PATH"
 	else echo 'Dynamic bin was not found, Running static...' && chmod +x '/xRest' && exec java -jar '/xRest'; fi
 else echo 'Running static xRest...' && chmod +x '/xRest' && exec java -jar '/xRest'; fi
